@@ -2,5 +2,9 @@
   "devDependencies": {
     "@qiita/qiita-cli": "^0.1.0",
     "textlint": "^13.3.3"
+  },
+  "scripts": {
+    "lint": "npx textlint ./public/*.md"
+    "fix": "npx textlint --fix ./public/*.md"
   }
 }
