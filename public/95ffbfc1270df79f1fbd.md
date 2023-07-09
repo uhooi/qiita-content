@@ -5,14 +5,14 @@ tags:
   - Mac
   - neovim
 private: false
-updated_at: '2023-06-12T13:35:34+09:00'
+updated_at: '2023-07-09T14:02:30+09:00'
 id: 95ffbfc1270df79f1fbd
 organization_url_name: dena_coltd
 ---
 :::note info
 本記事は [Vim 駅伝](https://vim-jp.org/ekiden/) の6/12の記事です。
 前回は6/9で [yukimemi](https://zenn.dev/yukimemi) さんの [TypeScript で Vim / Neovim の設定を書く！](https://zenn.dev/yukimemi/articles/2023-06-09-dvpm) です。
-次回は6/14でkawarimidollさんの「Vim scriptで1回しか使えないコマンド・関数を定義する」が公開予定です。
+次回は6/14で [kawarimidoll](https://zenn.dev/kawarimidoll) さんの [Vim scriptで1回しか使えないコマンド・関数を定義する](https://zenn.dev/vim_jp/articles/22856ed2627056) です。
 :::
 
 ## はじめに
@@ -155,7 +155,24 @@ Run :checkhealth for more info
 ### Xcode.appが存在しない
 
 Xcodeをリネームや削除するとビルドできなくなります。
-私は `Xcode.app` を削除したらビルドできなくなったので、 `Xcode_14.3.1.app` のシンボリックリンクを `Xcode.app` として作ったら直りました。
+
+```shell-session
+$ make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=$HOME/.local/nvim
+mkdir -p build
+touch build/.ran-deps-cmake
+ninja  -C .deps
+ninja: Entering directory `.deps'
+[2/2] cd /Users/uhooi/ghq/github.com/neovim/neovim/.deps && /opt/homebrew/Cellar/cmake/3.26.4/bi.../lib/lib*.dylib* -P /Users/uhooi/ghq/github.com/neovim/neovim/cmake.deps/cmake/RemoveFiles.cmake
+ninja  -C build
+ninja: Entering directory `build'
+[0/2] Re-checking globbed directories...
+ninja: error: '/Applications/Xcode-15.0.0-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/lib/libiconv.tbd', needed by 'bin/nvim', missing and no known rule to make it
+make: *** [nvim] Error 1
+```
+
+私は `Xcode-15.0.0-Beta.app` を削除したらビルドできなくなりました。
+
+前回のビルドで使った `libiconv.tbd` のパスをキャッシュしているようなので、 `make disclean` を実行してキャッシュを削除すると `make` のエラーが解消されます。
 
 ### リポジトリを移動する
 
@@ -168,17 +185,24 @@ Xcodeをリネームや削除するとビルドできなくなります。
 
 ### プラグインと言語サーバーの更新
 
-私は毎朝Neovimのビルドのほかに、プラグインと言語サーバーも更新しています。
+私は毎朝Neovimのビルドのほかに、プラグインと言語サーバー、Treesitterのパーサーを更新しています。
 
-プラグインマネージャは [lazy.nvim](https://github.com/folke/lazy.nvim) 、言語サーバーマネージャは [mason.nvim](https://github.com/williamboman/mason.nvim) を使っています。
+- プラグインマネージャ: [lazy.nvim](https://github.com/folke/lazy.nvim)
+- 言語サーバーマネージャ: [mason.nvim](https://github.com/williamboman/mason.nvim)
+- Treesitter: [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 
 ```vim
 :Lazy update
 ```
 
 ```vim
+:MasonUpdate
 :Mason
 更新する言語サーバーで「u」
+```
+
+```vim
+:TSUpdate
 ```
 
 ### HomebrewでHEADビルドする
