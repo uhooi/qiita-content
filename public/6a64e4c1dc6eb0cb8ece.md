@@ -7,6 +7,7 @@ private: false
 updated_at: '2023-05-20T12:46:40+09:00'
 id: 6a64e4c1dc6eb0cb8ece
 organization_url_name: dena_coltd
+slide: false
 ---
 ## はじめに
 

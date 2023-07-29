@@ -5,9 +5,10 @@ tags:
   - Mac
   - neovim
 private: false
-updated_at: '2023-07-09T14:02:30+09:00'
+updated_at: '2023-07-29T23:48:15+09:00'
 id: 95ffbfc1270df79f1fbd
 organization_url_name: dena_coltd
+slide: false
 ---
 :::note info
 本記事は [Vim 駅伝](https://vim-jp.org/ekiden/) の6/12の記事です。
@@ -182,6 +183,12 @@ make: *** [nvim] Error 1
 ## おまけ
 
 おまけです。
+
+### スクリプトの作成
+
+私はNeovimのビルドとインストールを頻繁に行うので、スクリプトを作成してdotfilesリポジトリへコミットしています。
+
+https://github.com/uhooi/dotfiles/blob/37dd3e141a2d5c23305afa5ea9888d93edb1be7d/install-nvim.sh
 
 ### プラグインと言語サーバーの更新
 

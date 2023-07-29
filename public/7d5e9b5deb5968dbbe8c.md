@@ -10,6 +10,7 @@ private: false
 updated_at: '2018-03-28T12:48:39+09:00'
 id: 7d5e9b5deb5968dbbe8c
 organization_url_name: null
+slide: false
 ---
 ## はじめに
 

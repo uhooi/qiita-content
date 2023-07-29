@@ -6,6 +6,7 @@ private: false
 updated_at: '2021-04-12T17:07:47+09:00'
 id: dc74ff3434aecb17faa2
 organization_url_name: null
+slide: false
 ---
 私はiOSとWindows、たまにLinuxでアプリを開発しています。どのOSでどの改行コードを使うかわからなくなるときがあるため、一覧にしてみました。
 
