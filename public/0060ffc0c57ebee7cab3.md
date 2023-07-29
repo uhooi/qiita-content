@@ -10,6 +10,7 @@ private: false
 updated_at: '2019-10-10T11:17:35+09:00'
 id: 0060ffc0c57ebee7cab3
 organization_url_name: null
+slide: false
 ---
 |Xcode(Mac)|VS2010(Windows)|説明|
 |:---|:---|:---|

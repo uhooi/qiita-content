@@ -8,6 +8,7 @@ private: false
 updated_at: '2021-05-17T22:59:34+09:00'
 id: cd1250c6f6de7d4abfd6
 organization_url_name: null
+slide: false
 ---
 ## 「detekt」とは？
 
