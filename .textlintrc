@@ -1,6 +1,9 @@
 {
   "rules": {
     "preset-ja-technical-writing": {
+      "sentence-length": {
+        "max": 200
+      },
       "no-exclamation-question-mark": false,
       "max-kanji-continuous-len": {
         allow: [
@@ -8,7 +11,8 @@
           "価格設定機能",
           "太平洋夏時間"
         ]
-      }
+      },
+      "ja-no-mixed-period": false
     },
     "period-in-list-item": true,
     "preset-ja-spacing": {
